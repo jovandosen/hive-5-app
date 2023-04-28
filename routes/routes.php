@@ -7,7 +7,8 @@ $uri = $_SERVER["REQUEST_URI"];
 $routes = [
     '/' => 'home',
     '/php-info' => 'php-info',
-    '/test' => 'test'
+    '/test' => 'test',
+    '/curl-example' => 'curl-example'
 ];
 
 $routeFound = false;
