@@ -8,6 +8,8 @@ class Model
 {
     public function curlRequest()
     {
+        $vendorName = 'Picture This Wedding: We offer Micro-Wedding Packages!';
+
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL, "https://www.theknot.com/marketplace/picture-this-wedding-we-offer-microwedding-packages-dover-nh-2001934");
@@ -21,8 +23,14 @@ class Model
         curl_close($ch);
 
         // echo $serverResponse;
-
         var_dump($serverResponse);
+        // var_dump($this->checkIfStringContainsVendorName($serverResponse, $vendorName));
+
+        // echo substr($serverResponse, 0);
+
+        /*$pattern = '/\{.*\}/s';
+        preg_match($pattern, $serverResponse, $matches);
+        var_dump($matches);*/
     }
 
     public function guzzleRequest()
@@ -38,7 +46,7 @@ class Model
         // var_dump($response);
 
         echo $response->getStatusCode();
-        echo $response->getHeaderLine('content-type');
+        // echo $response->getHeaderLine('content-type');
         echo $response->getBody();
 
         // Send an asynchronous request.
@@ -48,5 +56,15 @@ class Model
         // });
 
         // $promise->wait();
+    }
+
+    private function checkIfStringContainsVendorName($string, $vendorName)
+    {
+        if(str_contains($string, $vendorName)) {
+            // echo 'found vendor name';
+            return true;
+        }
+
+        return false;
     }
 }
