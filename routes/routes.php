@@ -8,7 +8,8 @@ $routes = [
     '/' => 'home',
     '/php-info' => 'php-info',
     '/test' => 'test',
-    '/curl-example' => 'curl-example'
+    '/curl-example' => 'curl-example',
+    '/guzzle-example' => 'guzzle-example'
 ];
 
 $routeFound = false;
