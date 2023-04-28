@@ -2,10 +2,19 @@
 
 namespace App\Mvc\Controllers;
 
+use App\Mvc\Models\Model;
+
 class Controller
 {
-    public function __construct()
+    public function sendCurlRequest()
     {
-        echo 'First controller';
+        $model = new Model();
+        $model->curlRequest();
+    }
+
+    public function sendGuzzleRequest()
+    {
+        $model = new Model();
+        $model->guzzleRequest();
     }
 }
